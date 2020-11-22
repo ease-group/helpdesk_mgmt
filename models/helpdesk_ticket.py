@@ -197,6 +197,8 @@ class HelpdeskTicket(models.Model):
             "partner_email": msg.get("from"),
             "partner_id": msg.get("author_id"),
         }
+
+        print ("##########################",defaults)
         defaults.update(custom_values)
 
         # Write default values coming from msg
@@ -236,12 +238,12 @@ class HelpdeskTicket(models.Model):
         recipients = super()._message_get_suggested_recipients()
         try:
             for ticket in self:
-                if ticket.partner_id:
-                    ticket._message_add_suggested_recipient(
-                        recipients, partner=ticket.partner_id, reason=_("Customer")
-                    )
-                elif ticket.partner_email:
-                    ticket._message_add_suggested_recipient(
+                # if ticket.partner_id:
+                #     ticket._message_add_suggested_recipient(
+                #         recipients, partner=ticket.partner_id, reason=_("Customer")
+                #     )
+                # elif ticket.partner_email:
+                ticket._message_add_suggested_recipient(
                         recipients,
                         email=ticket.partner_email,
                         reason=_("Customer Email"),
