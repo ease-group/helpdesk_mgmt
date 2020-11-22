@@ -234,22 +234,22 @@ class HelpdeskTicket(models.Model):
         self.message_subscribe(partner_ids)
         return super().message_update(msg, update_vals=update_vals)
 
-    def _message_get_suggested_recipients(self):
-        recipients = super()._message_get_suggested_recipients()
-        try:
-            for ticket in self:
-                # if ticket.partner_id:
-                #     ticket._message_add_suggested_recipient(
-                #         recipients, partner=ticket.partner_id, reason=_("Customer")
-                #     )
-                # elif ticket.partner_email:
-                ticket._message_add_suggested_recipient(
-                        recipients,
-                        email=ticket.partner_email,
-                        reason=_("Customer Email"),
-                    )
-        except AccessError:
-            # no read access rights -> just ignore suggested recipients because this
-            # imply modifying followers
-            pass
-        return recipients
+    # def _message_get_suggested_recipients(self):
+    #     recipients = super()._message_get_suggested_recipients()
+    #     try:
+    #         for ticket in self:
+    #             if ticket.partner_id:
+    #                 ticket._message_add_suggested_recipient(
+    #                     recipients, partner=ticket.partner_id, reason=_("Customer")
+    #                 )
+    #             elif ticket.partner_email:
+    #                 ticket._message_add_suggested_recipient(
+    #                     recipients,
+    #                     email=ticket.partner_email,
+    #                     reason=_("Customer Email"),
+    #                 )
+    #     except AccessError:
+    #         # no read access rights -> just ignore suggested recipients because this
+    #         # imply modifying followers
+    #         pass
+    #     return recipients
