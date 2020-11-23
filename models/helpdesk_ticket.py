@@ -63,7 +63,7 @@ class HelpdeskTicket(models.Model):
     category_id = fields.Many2one(
         comodel_name="helpdesk.ticket.category", string="Category",
     )
-    team_id = fields.Many2one(comodel_name="helpdesk.ticket.team", string="Team",)
+    team_id = fields.Many2one(comodel_name="helpdesk.ticket.team", string="Team",default=1)
     priority = fields.Selection(
         selection=[
             ("0", _("Low")),
