@@ -37,54 +37,54 @@
             <field name="groups" eval="[(4, ref('group_helpdesk_user'))]" />
         </record>
         <!-- Company Rules -->
-        <record id="helpdesk_ticket_comp_rule" model="ir.rule">
-            <field name="name">Helpdesk Ticket Company Rule</field>
-            <field name="model_id" ref="model_helpdesk_ticket" />
-            <field name="global" eval="True" />
-            <field
-                name="domain_force"
-            >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
-        </record>
-        <record id="helpdesk_ticket_category_comp_rule" model="ir.rule">
-            <field name="name">Helpdesk Category Company Rule</field>
-            <field name="model_id" ref="model_helpdesk_ticket_category" />
-            <field name="global" eval="True" />
-            <field
-                name="domain_force"
-            >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
-        </record>
-        <record id="helpdesk_ticket_channel_comp_rule" model="ir.rule">
-            <field name="name">Helpdesk Channel Company Rule</field>
-            <field name="model_id" ref="model_helpdesk_ticket_channel" />
-            <field name="global" eval="True" />
-            <field
-                name="domain_force"
-            >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
-        </record>
-        <record id="helpdesk_ticket_stage_comp_rule" model="ir.rule">
-            <field name="name">Helpdesk Stage Company Rule</field>
-            <field name="model_id" ref="model_helpdesk_ticket_stage" />
-            <field name="global" eval="True" />
-            <field
-                name="domain_force"
-            >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
-        </record>
-        <record id="helpdesk_ticket_tag_comp_rule" model="ir.rule">
-            <field name="name">Helpdesk Tag Company Rule</field>
-            <field name="model_id" ref="model_helpdesk_ticket_tag" />
-            <field name="global" eval="True" />
-            <field
-                name="domain_force"
-            >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
-        </record>
-        <record id="helpdesk_ticket_team_comp_rule" model="ir.rule">
-            <field name="name">Helpdesk Team Company Rule</field>
-            <field name="model_id" ref="model_helpdesk_ticket_team" />
-            <field name="global" eval="True" />
-            <field
-                name="domain_force"
-            >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
-        </record>
+<!--        <record id="helpdesk_ticket_comp_rule" model="ir.rule">-->
+<!--            <field name="name">Helpdesk Ticket Company Rule</field>-->
+<!--            <field name="model_id" ref="model_helpdesk_ticket" />-->
+<!--            <field name="global" eval="True" />-->
+<!--            <field-->
+<!--                name="domain_force"-->
+<!--            >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>-->
+<!--        </record>-->
+<!--        <record id="helpdesk_ticket_category_comp_rule" model="ir.rule">-->
+<!--            <field name="name">Helpdesk Category Company Rule</field>-->
+<!--            <field name="model_id" ref="model_helpdesk_ticket_category" />-->
+<!--            <field name="global" eval="True" />-->
+<!--            <field-->
+<!--                name="domain_force"-->
+<!--            >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>-->
+<!--        </record>-->
+<!--        <record id="helpdesk_ticket_channel_comp_rule" model="ir.rule">-->
+<!--            <field name="name">Helpdesk Channel Company Rule</field>-->
+<!--            <field name="model_id" ref="model_helpdesk_ticket_channel" />-->
+<!--            <field name="global" eval="True" />-->
+<!--            <field-->
+<!--                name="domain_force"-->
+<!--            >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>-->
+<!--        </record>-->
+<!--        <record id="helpdesk_ticket_stage_comp_rule" model="ir.rule">-->
+<!--            <field name="name">Helpdesk Stage Company Rule</field>-->
+<!--            <field name="model_id" ref="model_helpdesk_ticket_stage" />-->
+<!--            <field name="global" eval="True" />-->
+<!--            <field-->
+<!--                name="domain_force"-->
+<!--            >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>-->
+<!--        </record>-->
+<!--        <record id="helpdesk_ticket_tag_comp_rule" model="ir.rule">-->
+<!--            <field name="name">Helpdesk Tag Company Rule</field>-->
+<!--            <field name="model_id" ref="model_helpdesk_ticket_tag" />-->
+<!--            <field name="global" eval="True" />-->
+<!--            <field-->
+<!--                name="domain_force"-->
+<!--            >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>-->
+<!--        </record>-->
+<!--        <record id="helpdesk_ticket_team_comp_rule" model="ir.rule">-->
+<!--            <field name="name">Helpdesk Team Company Rule</field>-->
+<!--            <field name="model_id" ref="model_helpdesk_ticket_team" />-->
+<!--            <field name="global" eval="True" />-->
+<!--            <field-->
+<!--                name="domain_force"-->
+<!--            >['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>-->
+<!--        </record>-->
         <!-- Portal for helpdesk -->
         <record id="helpdesk_ticket_rule_portal" model="ir.rule">
             <field name="name">Portal Personal Tickets</field>
