@@ -47,13 +47,12 @@ class HelpdeskTicket(models.Model):
     closed = fields.Boolean(related="stage_id.closed")
     unattended = fields.Boolean(related="stage_id.unattended")
     tag_ids = fields.Many2many(comodel_name="helpdesk.ticket.tag", string="Tags")
-    # company_id = fields.Many2one(
-    #     comodel_name="res.company",
-    #     string="Company",
-    #     required=True,
-    #     default=lambda self: self.env.company,
-    # )
-    company_id=fields.Many2one(related="team_id.company_id",string="Company")
+    company_id = fields.Many2one(
+        comodel_name="res.company",
+        string="Company",
+        required=True,
+        default=lambda self: self.env.company,
+    )
     channel_id = fields.Many2one(
         comodel_name="helpdesk.ticket.channel",
         string="Channel",
@@ -63,7 +62,7 @@ class HelpdeskTicket(models.Model):
     category_id = fields.Many2one(
         comodel_name="helpdesk.ticket.category", string="Category",
     )
-    team_id = fields.Many2one(comodel_name="helpdesk.ticket.team", string="Team",default=1)
+    team_id = fields.Many2one(comodel_name="helpdesk.ticket.team", string="Team",)
     priority = fields.Selection(
         selection=[
             ("0", _("Low")),
