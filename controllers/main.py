@@ -60,6 +60,8 @@ class HelpdeskTicketController(http.Controller):
             .id,
         }
 
+        print ("------------------------------",vals)
+
         new_ticket = request.env["helpdesk.ticket"].sudo().create(vals)
         new_ticket.message_subscribe(partner_ids=request.env.user.partner_id.ids)
         if kw.get("attachment"):

@@ -47,12 +47,13 @@ class HelpdeskTicket(models.Model):
     closed = fields.Boolean(related="stage_id.closed")
     unattended = fields.Boolean(related="stage_id.unattended")
     tag_ids = fields.Many2many(comodel_name="helpdesk.ticket.tag", string="Tags")
-    company_id = fields.Many2one(
-        comodel_name="res.company",
-        string="Company",
-        required=True,
-        default=lambda self: self.env.company,
-    )
+    # company_id = fields.Many2one(
+    #     comodel_name="res.company",
+    #     string="Company",
+    #     required=True,
+    #     default=lambda self: self.env.company,
+    # )
+    company_id=fields.Many2one(related="team_id.company_id",string="Company")
     channel_id = fields.Many2one(
         comodel_name="helpdesk.ticket.channel",
         string="Channel",
@@ -234,22 +235,22 @@ class HelpdeskTicket(models.Model):
         self.message_subscribe(partner_ids)
         return super().message_update(msg, update_vals=update_vals)
 
-    # def _message_get_suggested_recipients(self):
-    #     recipients = super()._message_get_suggested_recipients()
-    #     try:
-    #         for ticket in self:
-    #             if ticket.partner_id:
-    #                 ticket._message_add_suggested_recipient(
-    #                     recipients, partner=ticket.partner_id, reason=_("Customer")
-    #                 )
-    #             elif ticket.partner_email:
-    #                 ticket._message_add_suggested_recipient(
-    #                     recipients,
-    #                     email=ticket.partner_email,
-    #                     reason=_("Customer Email"),
-    #                 )
-    #     except AccessError:
-    #         # no read access rights -> just ignore suggested recipients because this
-    #         # imply modifying followers
-    #         pass
-    #     return recipients
+    def _message_get_suggested_recipients(self):
+        recipients = super()._message_get_suggested_recipients()
+        try:
+            for ticket in self:
+                if ticket.partner_id:
+                    ticket._message_add_suggested_recipient(
+                        recipients, partner=ticket.partner_id, reason=_("Customer")
+                    )
+                elif ticket.partner_email:
+                    ticket._message_add_suggested_recipient(
+                        recipients,
+                        email=ticket.partner_email,
+                        reason=_("Customer Email"),
+                    )
+        except AccessError:
+            # no read access rights -> just ignore suggested recipients because this
+            # imply modifying followers
+            pass
+        return recipients
