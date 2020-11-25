@@ -94,7 +94,7 @@ class HelpdeskTicket(models.Model):
         self.env.ref("helpdesk_mgmt.assignment_email_template").send_mail(self.id)
 
     def assign_to_me(self):
-        self.write({"user_id": self.env.user.id})
+        self.write({"user_id": self.env.sudo().user.id})
 
     @api.onchange("partner_id")
     def _onchange_partner_id(self):
