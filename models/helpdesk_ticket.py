@@ -96,6 +96,8 @@ class HelpdeskTicket(models.Model):
     def assign_to_me(self):
         self.write({"user_id": self.env.user.id})
 
+        user = self.env['res.users'].browse(self._uid)
+
     @api.onchange("partner_id")
     def _onchange_partner_id(self):
         if self.partner_id:
