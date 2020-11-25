@@ -19,7 +19,7 @@
             <field
                 name="subject"
             >${object.company_id.name} Ticket Assignment (Ref ${object.number or 'n/a' })</field>
-            <field name="partner_to">${object.sudo().partner_id.id}</field>
+            <field name="partner_to">${sudo().object.partner_id.id}</field>
             <field name="auto_delete" eval="False" />
             <field name="lang">${object.partner_id.lang}</field>
             <field name="body_html" type="xml">
@@ -35,7 +35,7 @@
                 name="email_cc"
             >${not object.partner_id and object.partner_email or ''|safe},</field>
             <field name="subject">The ticket ${object.number} has been closed.</field>
-            <field name="partner_to">${object.sudo().partner_id.id}</field>
+            <field name="partner_to">${sudo().object.partner_id.id}</field>
             <field name="auto_delete" eval="False" />
             <field name="lang">${object.partner_id.lang}</field>
             <field
