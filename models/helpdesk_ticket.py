@@ -53,7 +53,7 @@ class HelpdeskTicket(models.Model):
     #     required=True,
     #     default=lambda self: self.env.company,
     # )
-    company_id = fields.Many2one(related='team_id.company_id', string='Company', store=True, readonly=True)
+    company_id = fields.Many2one(related='team_id.company_id',string='Company', store=True, readonly=True)
     channel_id = fields.Many2one(
         comodel_name="helpdesk.ticket.channel",
         string="Channel",
